@@ -1,12 +1,12 @@
 <template>
-    <h1>Edit Lesson</h1>
+    <h1>Edit Song</h1>
     <h4>{{ message }}</h4>
-    <h4>Tutorial : {{tutorialId}} Lesson : {{lessonId}}</h4>
+    <h4>Album : {{albumId}} Song : {{songId}}</h4>
 
     <v-form>
        <v-text-field
             label="Title"
-            v-model="lesson.title"
+            v-model="song.title"
         />
         <v-text-field
             label="Description"
@@ -15,7 +15,7 @@
         <v-row justify="center">
             <v-col col="2"> </v-col>
             <v-col col="2">
-                <v-btn color="success" @click="saveLesson()"
+                <v-btn color="success" @click="saveSong()"
                     >Save</v-btn
                 >
             </v-col>
@@ -27,10 +27,10 @@
     </v-form>
 </template>
 <script>
-import LessonDataService from "../services/LessonDataService";
+import SongDataService from "../services/SongDataService";
 export default {
   name: "edit-lesson",
-  props: {tutorialId : String,lessonId:String},
+  props: {albumId : String,songId:String},
   data() {
     return {
       lesson: Object,
@@ -38,34 +38,34 @@ export default {
     };
   },
   methods: {
-    retrieveLesson() {
-      LessonDataService.getLesson(this.tutorialId,this.lessonId)
+    retrieveSong() {
+      SongDataService.getSong(this.songId,this.songId)
         .then(response => {
-          this.lesson= response.data;
+          this.song= response.data;
         })
         .catch(e => {
           this.message = e.response.data.message;
         });
 
     },
-    saveLesson() {
+    saveSong() {
       var data = {
-        title: this.lesson.title,
-        description: this.lesson.description,
-        tutorialId : this.lesson.tutorialId
+        title: this.song.title,
+        description: this.song.description,
+        albumId : this.song.albumId
       };
-      LessonDataService.updateLesson(this.lesson.tutorialId,this.lesson.id, data)
+      SongDataService.update(this.song.albumId,this.song.id, data)
         .then(response => {
-          this.lesson.id = response.data.id;
+          this.song.id = response.data.id;
         
-         this.$router.push({ name: 'view' , params: { id: this.lesson.tutorialId }} );
+         this.$router.push({ name: 'view' , params: { id: this.lesson.albumId }} );
         })
         .catch(e => {
           this.message = e.response.data.message;
         });
     },
     cancel(){
-        this.$router.push({ name: 'view' , params: { id: this.lesson.tutorialId }} );
+        this.$router.push({ name: 'view' , params: { id: this.lesson.albumId }} );
     }
   },
     mounted() {

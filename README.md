@@ -1,1 +1,2 @@
-# frontend
+# tutorial-frontend
+Tutorial Vue frontend
