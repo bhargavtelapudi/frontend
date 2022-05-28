@@ -53,7 +53,7 @@
   </v-btn>
 </template>
 <script>
-import AlbumDataService from "../services/AlbumDataService";
+import AlbumDataService from "../../services/AlbumDataService";
 import AlbumDisplay from '@/components/AlbumDisplay.vue';
 export default {
   name: "albums-list",

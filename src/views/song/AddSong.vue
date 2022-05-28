@@ -26,7 +26,7 @@
     </v-form>
 </template>
 <script>
-import SongDataService from "../services/SongDataService";
+import SongDataService from "../../services/SongDataService";
 export default {
   name: "add-song",
   props: ['albumId'],
@@ -63,7 +63,6 @@ export default {
     }
   }
 }
-
 </script>
 <style>
 

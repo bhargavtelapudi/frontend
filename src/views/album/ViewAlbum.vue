@@ -36,8 +36,8 @@
    
 </template>
 <script>
-import AlbumDataService from "../services/AlbumDataService";
-import SongDataService from "../services/SongDataService";
+import AlbumDataService from "../../services/AlbumDataService";
+import SongDataService from "../../services/SongDataService";
 import SongDisplay from '@/components/SongDisplay.vue';
 export default {
   name: "view-album",

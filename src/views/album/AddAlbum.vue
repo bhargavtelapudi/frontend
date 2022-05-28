@@ -1,5 +1,5 @@
 <template>
-    <h1>Album Add</h1>
+    <h1>Add Album</h1>
     <h4>{{ message }}</h4>
     <v-form>
        <v-text-field
@@ -25,7 +25,7 @@
     </v-form>
 </template>
 <script>
-import AlbumDataService from "../services/AlbumDataService";
+import AlbumDataService from "../../services/AlbumDataService";
 export default {
   name: "add-album",
   data() {

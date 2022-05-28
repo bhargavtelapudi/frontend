@@ -4,35 +4,35 @@ const routes =  [
     path: "/",
     alias: "/albums",
     name: "albums",
-    component: () => import("./views/AlbumsList.vue")
+    component: () => import("./views/album/AlbumsList.vue")
   },
   {
     path: "/edit/:id",
     name: "edit",
-    component: () => import("./views/EditAlbum.vue"),
+    component: () => import("./views/album/EditAlbum.vue"),
     props: true
   },
   {
     path: "/add",
     name: "add",
-    component: () => import("./views/AddAlbum.vue")
+    component: () => import("./views/album/AddAlbum.vue")
   },
   {
     path: "/view",
     name: "view",
-    component: () => import("./views/ViewAlbum.vue"),
+    component: () => import("./views/album/ViewAlbum.vue"),
     props: true
   },
   {
     path: "/addSong",
     name: "addSong",
-    component: () => import("./views/AddSong.vue"),
+    component: () => import("./views/song/AddSong.vue"),
     props: true
   },
   {
     path: "/editSong",
     name: "editSong",
-    component: () => import("./views/EditSong.vue"),
+    component: () => import("./views/song/EditSong.vue"),
     props: true
   }
 ];

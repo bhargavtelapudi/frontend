@@ -15,6 +15,5 @@ class SongDataService {
   deleteSong(albumId,id) {
     return http.delete(`/albums/${albumId}/songs/${id}`);
   }
-
 }
 export default new SongDataService();
