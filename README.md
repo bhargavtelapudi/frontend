@@ -1,1 +1,1 @@
-# frontend
+# album-frontend
