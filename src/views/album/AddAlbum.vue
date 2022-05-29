@@ -9,7 +9,6 @@
       v-model="album.published"
       label="Published"
       color="success"
-      value="success"
       class="checkbox"
     ></v-checkbox>
     <v-row justify="center">
