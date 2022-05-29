@@ -1,6 +1,6 @@
 <template>
   <h1>Edit Album</h1>
-  <h4>{{ message }}</h4>
+  <h4 class="highlight__text">{{ message }}</h4>
   <v-form class="form">
     <v-text-field label="Title" v-model="album.title" />
     <v-text-field label="Description" v-model="album.description" />

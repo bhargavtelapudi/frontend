@@ -1,10 +1,10 @@
 import http from "../http-common";
 class SongDataService {
-  getAllSong(albumId) {
-    return http.get(`/albums/${albumId}/song`);
+  getAllSongs(albumId) {
+    return http.get(`/albums/${albumId}/songs`);
   }
   getSong(albumId,id) {
-    return http.get(`/albums/${albumsId}/songs/${id}`);
+    return http.get(`/albums/${albumId}/songs/${id}`);
   }
   createSong(albumId,data) {
     return http.post(`/albums/${albumId}/songs`, data);
