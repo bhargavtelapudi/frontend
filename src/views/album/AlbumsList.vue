@@ -29,7 +29,7 @@
     <v-col cols="9" sm="1">
       <span class="text-h6">Delete</span>
     </v-col>
-
+    <div class="album__item--wrapper">
     <AlbumDisplay
       v-for="album in albums"
       :key="album.id"
@@ -38,6 +38,7 @@
       @updateAlbum="goEdit(album)"
       @viewAlbum="goView(album)"
     />
+    </div>
   </v-row>
 
   <v-btn @click="removeAllAlbums" color="error"> Remove All Albums</v-btn>
@@ -49,24 +50,7 @@ export default {
   name: "albums-list",
   data() {
     return {
-      albums: [
-        {
-          title: "Thriller",
-          description: "Thriller is the sixth studio album by American singer and songwriter Michael Jackson, released on November 30, 1982, by Epic Records. It was produced by Quincy Jones, who had previously worked with Jackson on his 1979 album Off the Wall",
-          id: 1,
-          artist: [{
-            artist:"Micheal Jackson"
-          }],
-        },
-        {
-          title: "Purpose",
-          description: "Purpose is the fourth studio album by Canadian singer Justin Bieber. It was released through Def Jam Recordings and School Boy Records on November 13, 2015, as the follow-up to his 2012 album “Believe”.",
-          id: 1,
-          artist: [{
-            artist:"Justin Bieber"
-          }],
-        },
-      ],
+      albums: [],
       currentAlbum: null,
       currentIndex: -1,
       title: "",
@@ -157,5 +141,9 @@ export default {
 }
 .input-search {
   margin-top: 25px;
+}
+.album__item--wrapper{
+  display: flex;
+  flex-direction: column;
 }
 </style>
