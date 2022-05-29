@@ -18,13 +18,13 @@ const routes =  [
     component: () => import("./views/album/AddAlbum.vue")
   },
   {
-    path: "/view",
+    path: "/view/:id",
     name: "view",
     component: () => import("./views/album/ViewAlbum.vue"),
     props: true
   },
   {
-    path: "/addSong",
+    path: "/addSong/:id/:albumName",
     name: "addSong",
     component: () => import("./views/song/AddSong.vue"),
     props: true

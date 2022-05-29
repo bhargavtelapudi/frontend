@@ -1,5 +1,5 @@
 <template>
-<v-row>
+<v-row class="album__list-item">
   <v-col  cols="8"
         sm="2">
       <span >{{ song.title }}</span>
@@ -22,7 +22,7 @@
 <script>
 export default {
   props: {
-    lesson: Object
+    song: Object
   },
   data() {
     return {
@@ -30,7 +30,6 @@ export default {
     };
   },
   methods: {
-
     deleteSong() {
       this.$emit("deleteSong");
     },

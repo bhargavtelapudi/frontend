@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import logo from './assets/oc-logo-white.png'
+import logo from './assets/oc-logo-white.png';
+
 export default {
   name: 'App',
 
@@ -59,16 +60,21 @@ html{
   font-family: 'Montserrat', sans-serif !important;
 }
 :root{
-  --lightGrey:#d3d3d3;
+  --lightGrey:#dbd7d7;
+  --boxShadow: 0px 10px 25px rgba(0, 0, 0, 0.177);
 }
 .form {
-  border: 1px solid var(--lightGrey);
-  border-radius: 10px;
-  margin-top: 15px;
-  padding: 20px 20px;
+    border: 1px solid var(--lightGrey);
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 20px 20px;
+    box-shadow: var(--boxShadow);
 }
-.checkbox{
-  width: max-content;
-  height: 50px ; 
+.checkbox {
+    width: max-content;
+    height: 50px;
+}
+.highlight__text{
+  color: rgb(144, 144, 187);
 }
 </style>

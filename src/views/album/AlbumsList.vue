@@ -1,6 +1,6 @@
 <template>
   <h1>Album List</h1>
-  <h4>{{ message }}</h4>
+  <h4 class="highlight__text">{{ message }}</h4>
   <v-row class="albums__list--search">
     <div>
       <v-text-field class="input-search" clearable v-model="title" />
@@ -125,6 +125,7 @@ export default {
   display: flex;
   justify-content: center;
   margin: 10px 0px 20px 0px;
+  box-shadow: var(--boxShadow);
 }
 .albums__list--search {
   margin: 10px 0px 20px 0px;
