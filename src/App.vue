@@ -61,4 +61,14 @@ html{
 :root{
   --lightGrey:#d3d3d3;
 }
+.form {
+  border: 1px solid var(--lightGrey);
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 20px 20px;
+}
+.checkbox{
+  width: max-content;
+  height: 50px ; 
+}
 </style>

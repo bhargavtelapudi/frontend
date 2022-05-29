@@ -1,7 +1,6 @@
 <template>
   <h1>Album List</h1>
   <h4>{{ message }}</h4>
-
   <v-row class="albums__list--search">
     <div>
       <v-text-field class="input-search" clearable v-model="title" />
@@ -40,7 +39,6 @@
     />
     </div>
   </v-row>
-
   <v-btn @click="removeAllAlbums" color="error"> Remove All Albums</v-btn>
 </template>
 <script>
@@ -104,7 +102,6 @@ export default {
           this.message = e.response.data.message;
         });
     },
-
     searchTitle() {
       AlbumDataService.findByTitle(this.title)
         .then((response) => {
@@ -145,5 +142,6 @@ export default {
 .album__item--wrapper{
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 </style>
