@@ -14,7 +14,7 @@
         <v-row justify="center">
             <v-col col="2"> </v-col>
             <v-col col="2">
-                <v-btn color="success" @click="savesong()"
+                <v-btn color="success" @click="saveSong()"
                     >Save</v-btn
                 >
             </v-col>
@@ -48,10 +48,9 @@ export default {
         description: this.song.description,
         albumId : this.albumId
       };
-      SongDataService.creatSong(this.albumId, data)
+      SongDataService.createSong(this.albumId, data)
         .then(response => {
           this.song.id = response.data.id;
-        
           this.$router.push({ name: 'view' , params: { id: this.albumId }} );
         })
         .catch(e => {
