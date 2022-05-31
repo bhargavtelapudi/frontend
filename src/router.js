@@ -30,7 +30,7 @@ const routes =  [
     props: true
   },
   {
-    path: "/editSong",
+    path: "/editSong/:albumId/:songId",
     name: "editSong",
     component: () => import("./views/song/EditSong.vue"),
     props: true

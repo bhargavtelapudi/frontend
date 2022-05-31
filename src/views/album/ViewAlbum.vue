@@ -10,13 +10,15 @@
       <v-btn color="success" @click="goAddSong(id)">Add Song</v-btn>
     </v-col>
   </v-row>
-
   <v-row class="albums__list--table">
     <v-col cols="8" sm="2">
       <span class="text-h6">Title</span>
     </v-col>
     <v-col cols="8" sm="4">
       <span class="text-h6">Description</span>
+    </v-col>
+    <v-col cols="8" sm="2">
+      <span class="text-h6">Status</span>
     </v-col>
     <v-col cols="8" sm="1">
       <span class="text-h6">Edit</span>
@@ -65,7 +67,7 @@ export default {
           this.message = e.response.data.message;
         });
     },
-    goEditSong(lesson) {
+    goEditSong(song) {
       this.$router.push({ name: 'editSong', params: { albumId: this.id, songId: song.id } });
     },
     goAddSong() {
