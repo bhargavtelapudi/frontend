@@ -31,6 +31,7 @@
         @updateSong="goEditSong(song)" />
     </div>
   </v-row>
+    <v-btn @click="removeAllSongs" color="error">Remove All Songs</v-btn>
 </template>
 <script>
 import AlbumDataService from "../../services/AlbumDataService";
@@ -79,6 +80,15 @@ export default {
           this.retrieveSongs()
         })
         .catch(e => {
+          this.message = e.response.data.message;
+        });
+    },
+    removeAllSongs() {
+      SongDataService.deleteAllSongs(this.id)
+        .then((response) => {
+          this.retrieveSongs();
+        })
+        .catch((e) => {
           this.message = e.response.data.message;
         });
     },
