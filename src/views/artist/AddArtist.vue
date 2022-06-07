@@ -32,7 +32,7 @@ export default {
       ArtistDataService.addArtist(data)
         .then((response) => {
           console.log("add???" + response.data);
-          this.$router.push({ name: "albums" });
+          this.$router.push({ name: "artists" });
         })
         .catch((e) => {
           this.message = e.response.data.message;
