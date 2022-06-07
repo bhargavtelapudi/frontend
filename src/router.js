@@ -36,6 +36,11 @@ const routes =  [
     props: true
   },
   {
+    path: "/artists",
+    name: "artists",
+    component: () => import("./views/artist/ArtistList.vue")
+  },
+  {
     path: "/addArtist",
     name: "addArtist",
     component: () => import("./views/artist/AddArtist.vue"),
