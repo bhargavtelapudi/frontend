@@ -34,6 +34,12 @@ const routes =  [
     name: "editSong",
     component: () => import("./views/song/EditSong.vue"),
     props: true
+  },
+  {
+    path: "/addArtist",
+    name: "addArtist",
+    component: () => import("./views/artist/AddArtist.vue"),
+    props: true 
   }
 ];
 const router = createRouter({
