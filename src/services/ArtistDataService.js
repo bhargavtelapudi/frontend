@@ -10,10 +10,13 @@ class ArtistDataService {
         return http.get(`/artists/${id}`);
     }
     updateArtist(id, body) {
-        return http.put(`/artists/${id}`, body);
+        return http.put(`/artist/${id}`, body);
     }
     getArtistDetails(artist) {
         return http.get(`/artists/${artist}`);
+    }
+    deleteArtist(id) {
+        return http.delete(`/artist/${id}`);
     }
 }
 export default new ArtistDataService();

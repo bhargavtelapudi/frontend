@@ -47,8 +47,8 @@ export default {
     goView(artist) {
       this.$router.push({ name: "viewArtist", params: { id: artist.id , artist : artist.artist } });
     },
-    goDelete(album) {
-      ArtistDataService.delete(album.id)
+    goDelete(artist) {
+      ArtistDataService.deleteArtist(artist.id)
         .then(() => {
           this.retrieveArtists();
         })
