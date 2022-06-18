@@ -18,5 +18,8 @@ class SongDataService {
   deleteAllSongs(albumId) {
     return http.delete(`/albums/${albumId}/all/songs`);
   }
+  searchSong(albumId,title) {
+    return http.get(`/albums/${albumId}/songs?title=${title}`);
+  }
 }
 export default new SongDataService();
