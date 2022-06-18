@@ -1,13 +1,16 @@
 import http from "../http-common";
 class ArtistDataService {
     addArtist(body) {
-        return http.post("/artists",body);
+        return http.post("/artists", body);
     }
-    getAllArtists(){
+    getAllArtists() {
         return http.get(`/artists`);
     }
-    get(id) {
-        return http.get(`/albums/${id}`);
+    getArtist(id) {
+        return http.get(`/artists/${id}`);
+    }
+    updateArtist(id, body) {
+        return http.put(`/artists/${id}`, body);
     }
 }
 export default new ArtistDataService();

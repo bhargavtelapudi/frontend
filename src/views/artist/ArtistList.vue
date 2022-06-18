@@ -10,8 +10,8 @@
     </div>
   </v-row>
   <v-row class="albums__list--table">
-    <v-col cols="9" sm="2">
-      <span class="text-h6">Title</span>
+    <v-col cols="9" sm="4">
+      <span class="text-h6">Artist Name</span>
     </v-col>
     <v-col cols="9" sm="1">
       <span class="text-h6">Edit</span>
@@ -23,14 +23,14 @@
       <span class="text-h6">Delete</span>
     </v-col>
     <div class="album__item--wrapper">
-    <ArtistDisplay
-      v-for="artist in artists"
-      :key="artist.id"
-      :artist="artist"
-      @deleteArtist="goDelete(artist)"
-      @updateArtist="goEdit(artist)"
-      @viewArtist="goView(artist)"
-    />
+      <ArtistDisplay
+        v-for="artist in artists"
+        :key="artist.id"
+        :artist="artist"
+        @deleteArtist="goDelete(artist)"
+        @updateArtist="goEdit(artist)"
+        @viewArtist="goView(artist)"
+      />
     </div>
   </v-row>
 </template>
@@ -50,8 +50,8 @@ export default {
     ArtistDisplay,
   },
   methods: {
-    goEdit(album) {
-      this.$router.push({ name: "edit", params: { id: album.id } });
+    goEdit(artist) {
+      this.$router.push({ name: "editArtist", params: { id: artist.id } });
     },
     goView(album) {
       this.$router.push({ name: "view", params: { id: album.id } });
@@ -59,13 +59,13 @@ export default {
     goDelete(album) {
       ArtistDataService.delete(album.id)
         .then(() => {
-          this.retrieveAlbums();
+          this.retrieveArtists();
         })
         .catch((e) => {
           this.message = e.response.data.message;
         });
     },
-    retrieveAlbums() {
+    retrieveArtists() {
       ArtistDataService.getAllArtists()
         .then((response) => {
           this.artists = response.data;
@@ -85,7 +85,7 @@ export default {
     },
   },
   mounted() {
-    this.retrieveAlbums();
+    this.retrieveArtists();
   },
 };
 </script>
@@ -111,7 +111,7 @@ export default {
 .input-search {
   margin-top: 25px;
 }
-.album__item--wrapper{
+.album__item--wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
