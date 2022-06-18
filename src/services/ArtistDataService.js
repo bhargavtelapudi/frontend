@@ -7,7 +7,7 @@ class ArtistDataService {
         return http.get(`/artists`);
     }
     getArtist(id) {
-        return http.get(`/artists/${id}`);
+        return http.get(`/artist/${id}`);
     }
     updateArtist(id, body) {
         return http.put(`/artist/${id}`, body);
