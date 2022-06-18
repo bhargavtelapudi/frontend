@@ -1,5 +1,5 @@
 <template>
-  <h2>Album View</h2>
+  <h2>View Album</h2>
   <h4 class="highlight__text">{{ message }}</h4>
   <div class="view__album--details">
     <h3>Album Name : {{ album.title }}</h3>

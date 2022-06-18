@@ -44,8 +44,8 @@ export default {
     goEdit(artist) {
       this.$router.push({ name: "editArtist", params: { id: artist.id } });
     },
-    goView(album) {
-      this.$router.push({ name: "view", params: { id: album.id } });
+    goView(artist) {
+      this.$router.push({ name: "viewArtist", params: { id: artist.id , artist : artist.artist } });
     },
     goDelete(album) {
       ArtistDataService.delete(album.id)
