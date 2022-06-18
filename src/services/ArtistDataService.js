@@ -12,5 +12,8 @@ class ArtistDataService {
     updateArtist(id, body) {
         return http.put(`/artists/${id}`, body);
     }
+    getArtistDetails(artist) {
+        return http.get(`/artists/${artist}`);
+    }
 }
 export default new ArtistDataService();

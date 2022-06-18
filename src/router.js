@@ -52,6 +52,12 @@ const routes = [
     component: () => import("./views/artist/EditArtist.vue"),
     props: true
   },
+  {
+    path: "/viewArtist/:id/:artist",
+    name: "viewArtist",
+    component: () => import("./views/artist/ViewArtist.vue"),
+    props: true
+  },
 ];
 const router = createRouter({
   base: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend-1/',
