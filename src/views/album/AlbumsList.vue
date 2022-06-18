@@ -3,7 +3,12 @@
   <h4 class="highlight__text">{{ message }}</h4>
   <v-row class="albums__list--search">
     <div>
-      <v-text-field class="input-search" clearable v-model="title" />
+      <v-text-field
+        class="input-search"
+        label="Search Albums"
+        clearable
+        v-model="title"
+      />
     </div>
     <div>
       <v-btn color="success" @click="searchTitle"> Search </v-btn>
@@ -29,14 +34,14 @@
       <span class="text-h6">Delete</span>
     </v-col>
     <div class="album__item--wrapper">
-    <AlbumDisplay
-      v-for="album in albums"
-      :key="album.id"
-      :album="album"
-      @deleteAlbum="goDelete(album)"
-      @updateAlbum="goEdit(album)"
-      @viewAlbum="goView(album)"
-    />
+      <AlbumDisplay
+        v-for="album in albums"
+        :key="album.id"
+        :album="album"
+        @deleteAlbum="goDelete(album)"
+        @updateAlbum="goEdit(album)"
+        @viewAlbum="goView(album)"
+      />
     </div>
   </v-row>
   <v-btn @click="removeAllAlbums" color="error"> Remove All Albums</v-btn>
@@ -140,7 +145,7 @@ export default {
 .input-search {
   margin-top: 25px;
 }
-.album__item--wrapper{
+.album__item--wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;

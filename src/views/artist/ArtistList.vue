@@ -1,14 +1,6 @@
 <template>
   <h1>Artists List</h1>
   <h4 class="highlight__text">{{ message }}</h4>
-  <v-row class="albums__list--search">
-    <div>
-      <v-text-field class="input-search" clearable v-model="title" />
-    </div>
-    <div>
-      <v-btn color="success" @click="searchTitle"> Search </v-btn>
-    </div>
-  </v-row>
   <v-row class="albums__list--table">
     <v-col cols="9" sm="4">
       <span class="text-h6">Artist Name</span>
@@ -42,7 +34,6 @@ export default {
   data() {
     return {
       artists: [],
-      title: "",
       message: "Search, Edit or Delete Artists",
     };
   },
@@ -73,16 +64,7 @@ export default {
         .catch((e) => {
           this.message = e.response.data.message;
         });
-    },
-    searchTitle() {
-      ArtistDataService.findByTitle(this.title)
-        .then((response) => {
-          this.artists = response.data;
-        })
-        .catch((e) => {
-          this.message = e.response.data.message;
-        });
-    },
+    }
   },
   mounted() {
     this.retrieveArtists();
