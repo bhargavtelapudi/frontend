@@ -1,6 +1,6 @@
 <template>
   <v-row class="album__list-item">
-    <v-col cols="9" sm="2">
+    <v-col cols="9" sm="4">
       <span>{{ artist.artist }}</span>
     </v-col>
     <v-col cols="9" sm="1">

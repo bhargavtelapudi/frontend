@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
-const routes =  [
+const routes = [
   {
     path: "/",
     alias: "/albums",
@@ -44,8 +44,14 @@ const routes =  [
     path: "/addArtist",
     name: "addArtist",
     component: () => import("./views/artist/AddArtist.vue"),
-    props: true 
-  }
+    props: true
+  },
+  {
+    path: "/editArtist/:id",
+    name: "editArtist",
+    component: () => import("./views/artist/EditArtist.vue"),
+    props: true
+  },
 ];
 const router = createRouter({
   base: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend-1/',
