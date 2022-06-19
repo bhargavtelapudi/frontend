@@ -47,12 +47,6 @@ const routes = [
     props: true
   },
   {
-    path: "/editArtist/:id",
-    name: "editArtist",
-    component: () => import("./views/artist/EditArtist.vue"),
-    props: true
-  },
-  {
     path: "/viewArtist/:id/:artist",
     name: "viewArtist",
     component: () => import("./views/artist/ViewArtist.vue"),

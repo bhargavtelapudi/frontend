@@ -14,37 +14,49 @@
       <v-btn color="success" @click="searchTitle"> Search </v-btn>
     </div>
   </v-row>
-  <v-row class="albums__list--table">
-    <v-col cols="9" sm="2">
-      <span class="text-h6">Title</span>
-    </v-col>
-    <v-col cols="9" sm="4">
-      <span class="text-h6">Description</span>
-    </v-col>
-    <v-col cols="4" sm="2">
-      <span class="text-h6">Artist Name</span>
-    </v-col>
-    <v-col cols="9" sm="1">
-      <span class="text-h6">Edit</span>
-    </v-col>
-    <v-col cols="9" sm="1">
-      <span class="text-h6">View</span>
-    </v-col>
-    <v-col cols="9" sm="1">
-      <span class="text-h6">Delete</span>
-    </v-col>
-    <div class="album__item--wrapper">
-      <AlbumDisplay
-        v-for="album in albums"
-        :key="album.id"
-        :album="album"
-        @deleteAlbum="goDelete(album)"
-        @updateAlbum="goEdit(album)"
-        @viewAlbum="goView(album)"
-      />
-    </div>
-  </v-row>
-  <v-btn @click="removeAllAlbums" color="error"> Remove All Albums</v-btn>
+  <div v-if="albums.length > 0">
+    <v-row class="albums__list--table">
+      <v-col cols="9" sm="2">
+        <span class="text-h6">Title</span>
+      </v-col>
+      <v-col cols="9" sm="2">
+        <span class="text-h6">Description</span>
+      </v-col>
+      <v-col cols="4" sm="2">
+        <span class="text-h6">Artist Name</span>
+      </v-col>
+      <v-col cols="4" sm="2">
+        <span class="text-h6">Songs Count</span>
+      </v-col>
+      <v-col cols="9" sm="1">
+        <span class="text-h6">Edit</span>
+      </v-col>
+      <v-col cols="9" sm="1">
+        <span class="text-h6">View</span>
+      </v-col>
+      <v-col cols="9" sm="1">
+        <span class="text-h6">Delete</span>
+      </v-col>
+      <div class="album__item--wrapper">
+        <AlbumDisplay
+          v-for="album in albums"
+          :key="album.id"
+          :album="album"
+          @deleteAlbum="goDelete(album)"
+          @updateAlbum="goEdit(album)"
+          @viewAlbum="goView(album)"
+        />
+      </div>
+    </v-row>
+    <v-btn @click="removeAllAlbums" color="error"> Remove All Albums</v-btn>
+  </div>
+  <h2
+    v-else-if="albums.length < 1"
+    class="highlight__text"
+    style="text-align: center"
+  >
+    NO ALBUMS FOUND
+  </h2>
 </template>
 <script>
 import AlbumDataService from "../../services/AlbumDataService";
@@ -100,7 +112,6 @@ export default {
     removeAllAlbums() {
       AlbumDataService.deleteAll()
         .then((response) => {
-          console.log(response.data);
           this.refreshList();
         })
         .catch((e) => {
@@ -111,7 +122,6 @@ export default {
       AlbumDataService.findByTitle(this.title)
         .then((response) => {
           this.albums = response.data;
-          this.setActiveAlbum(null);
         })
         .catch((e) => {
           this.message = e.response.data.message;
