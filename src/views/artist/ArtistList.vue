@@ -6,9 +6,6 @@
       <span class="text-h6">Artist Name</span>
     </v-col>
     <v-col cols="9" sm="1">
-      <span class="text-h6">Edit</span>
-    </v-col>
-    <v-col cols="9" sm="1">
       <span class="text-h6">View</span>
     </v-col>
     <v-col cols="9" sm="1">
@@ -20,7 +17,6 @@
         :key="artist.id"
         :artist="artist"
         @deleteArtist="goDelete(artist)"
-        @updateArtist="goEdit(artist)"
         @viewArtist="goView(artist)"
       />
     </div>
@@ -34,21 +30,18 @@ export default {
   data() {
     return {
       artists: [],
-      message: "Search, Edit or Delete Artists",
+      message: "Manage Artists",
     };
   },
   components: {
     ArtistDisplay,
   },
   methods: {
-    goEdit(artist) {
-      this.$router.push({ name: "editArtist", params: { id: artist.id } });
-    },
     goView(artist) {
       this.$router.push({ name: "viewArtist", params: { id: artist.id , artist : artist.artist } });
     },
     goDelete(artist) {
-      ArtistDataService.deleteArtist(artist.id)
+      ArtistDataService.deleteArtist(artist.artist)
         .then(() => {
           this.retrieveArtists();
         })

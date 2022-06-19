@@ -23,33 +23,42 @@
       <v-btn color="success" @click="serachSong">Search</v-btn>
     </div>
   </v-row>
-  <v-row class="albums__list--table">
-    <v-col cols="8" sm="2">
-      <span class="text-h6">Title</span>
-    </v-col>
-    <v-col cols="8" sm="4">
-      <span class="text-h6">Description</span>
-    </v-col>
-    <v-col cols="8" sm="2">
-      <span class="text-h6">Status</span>
-    </v-col>
-    <v-col cols="8" sm="1">
-      <span class="text-h6">Edit</span>
-    </v-col>
-    <v-col cols="8" sm="1">
-      <span class="text-h6">Delete</span>
-    </v-col>
-    <div class="album__item--wrapper">
-      <SongDisplay
-        v-for="song in songs"
-        :key="song.id"
-        :song="song"
-        @deleteSong="goDeleteSong(song)"
-        @updateSong="goEditSong(song)"
-      />
-    </div>
-  </v-row>
-  <v-btn @click="removeAllSongs" color="error">Remove All Songs</v-btn>
+  <div v-if="songs.length > 0">
+    <v-row class="albums__list--table">
+      <v-col cols="8" sm="2">
+        <span class="text-h6">Title</span>
+      </v-col>
+      <v-col cols="8" sm="4">
+        <span class="text-h6">Description</span>
+      </v-col>
+      <v-col cols="8" sm="2">
+        <span class="text-h6">Status</span>
+      </v-col>
+      <v-col cols="8" sm="1">
+        <span class="text-h6">Edit</span>
+      </v-col>
+      <v-col cols="8" sm="1">
+        <span class="text-h6">Delete</span>
+      </v-col>
+      <div class="album__item--wrapper">
+        <SongDisplay
+          v-for="song in songs"
+          :key="song.id"
+          :song="song"
+          @deleteSong="goDeleteSong(song)"
+          @updateSong="goEditSong(song)"
+        />
+      </div>
+    </v-row>
+    <v-btn @click="removeAllSongs" color="error">Remove All Songs</v-btn>
+  </div>
+  <h2
+    class="highlight__text"
+    v-else-if="songs.length < 1"
+    style="text-align: center"
+  >
+    NO SONGS FOUND
+  </h2>
 </template>
 <script>
 import AlbumDataService from "../../services/AlbumDataService";
@@ -120,8 +129,7 @@ export default {
     serachSong() {
       SongDataService.searchSong(this.id, this.title)
         .then((response) => {
-          const data = response.data.data[0];
-          this.songs = data.song;
+          this.songs = response.data;
         })
         .catch((e) => {
           this.message = e.response.data.message;

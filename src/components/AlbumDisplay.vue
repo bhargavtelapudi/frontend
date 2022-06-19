@@ -3,11 +3,14 @@
     <v-col cols="9" sm="2">
       <span>{{ album.title }}</span>
     </v-col>
-    <v-col cols="9" sm="4">
+    <v-col cols="9" sm="2">
       <span> {{ album.description }}</span>
     </v-col>
     <v-col cols="4" sm="2">
       <span> {{ album.artist[0].artist }}</span>
+    </v-col>
+    <v-col cols="4" sm="2">
+      <span> {{ album?.song?.length }}</span>
     </v-col>
     <v-col cols="9" sm="1">
       <v-btn size="x-small" icon="mdi-pencil" @click="updateAlbum" />

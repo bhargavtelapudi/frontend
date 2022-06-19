@@ -19,7 +19,7 @@ class AlbumDataService {
     return http.delete(`/albums`);
   }
   findByTitle(title) {
-    return http.get(`/albums?title=${title}`);
+    return http.get(`/albums/search?title=${title}`);
   }
 }
 export default new AlbumDataService();
