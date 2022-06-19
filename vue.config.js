@@ -8,6 +8,6 @@ module.exports = {
     host: 'localhost',
     port: 8081
   },
-  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend-1/',
+  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend/',
 }
 

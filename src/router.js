@@ -54,7 +54,7 @@ const routes = [
   },
 ];
 const router = createRouter({
-  base: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend-1/',
+  base: process.env.NODE_ENV === 'development' ? '/' : '/album-frontend/',
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
